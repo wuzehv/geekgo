@@ -54,7 +54,7 @@ func main() {
 			select {
 			case sig := <-sigs:
 				fmt.Println("接收到系统信号", sig)
-				// 发现号退出所有服务
+				// 发信号返回错误
 				done <- struct{}{}
 			case <-ctx.Done():
 				// http服务报错也不再继续监听信号
