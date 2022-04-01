@@ -2,7 +2,6 @@
 
 ```
 答：errgroup的Go方法调用，其中有一个返回错误，内部会调用context的cancel方法
-其他goroutine会接收到取消通知
 
 利用这个特性，在每个服务内监听context.Done，如果收到消息，说明可以进行退出
 ```
