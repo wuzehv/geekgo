@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "github.com/wuzehv/geekgo/w04/api";
+
+package user;
+
+service User {
+  rpc GetUserList (UserRequest) returns (UserList) {}
+}
+
+message UserInfo {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message UserRequest {
+  string name = 1;
+  int32  age = 2;
+}
+
+message UserList {
+  repeated UserInfo userinfo = 1;
+}
