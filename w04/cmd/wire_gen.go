@@ -8,9 +8,11 @@ package main
 
 // Injectors from wire.go:
 
-func InitializeEvent() Event {
-	message := NewMessage()
-	greeter := NewGreeter(message)
-	event := NewEvent(greeter)
-	return event
+func InitializeApp() (*App, error) {
+	db, err := NewDB()
+	if err != nil {
+		return nil, err
+	}
+	app := NewApp(db)
+	return app, nil
 }
