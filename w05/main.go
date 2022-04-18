@@ -76,7 +76,9 @@ func main() {
 		}
 	}()
 
-	time.Sleep(3 * time.Second)
+	time.Sleep(1 * time.Second)
+	x.lock.RLock()
+	defer x.lock.RUnlock()
 	for k, v := range x.rn {
 		fmt.Printf("key: %v, number: %d\n", k, *v)
 	}
